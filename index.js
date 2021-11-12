@@ -47,7 +47,7 @@ let app = new Vue({
             //     this.order.stateCheckoutDisplay= state;
 
         },
-        showCheckout() {
+        showCart() {
             this.showProduct = this.showProduct ? false : true
             
         },
