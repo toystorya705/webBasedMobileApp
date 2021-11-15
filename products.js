@@ -6,6 +6,7 @@ let product=[{
         price: "50",
         stock: stock,
         image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+        cart:0,
         rating:3,
         id:0
     },{
@@ -15,6 +16,7 @@ let product=[{
         price: "100",
         stock: stock,
         image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+        cart:0,
         rating:4,
         id:1
     },{
@@ -24,6 +26,7 @@ let product=[{
         price: "90",
         stock: stock,
         image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+        cart:0,
         rating:2,
         id:2
     },
@@ -34,6 +37,7 @@ let product=[{
         price: "120",
         stock: stock,
         image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+        cart:0,
         rating:5,
         id:3
     },{
@@ -43,6 +47,7 @@ let product=[{
         price: "9",
         stock: stock,
         image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+        cart:0,
         rating:1,
         id:4
     },{
@@ -52,6 +57,7 @@ let product=[{
         price: "30",
         stock: stock,
         image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+        cart:0,
         rating:5,
         id:5
     },
@@ -62,6 +68,7 @@ let product=[{
         price: "49",
         stock: stock,
         image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+        cart:0,
         rating:3,
         id:6
     },
@@ -72,6 +79,7 @@ let product=[{
         price: "500",
         stock: stock,
         image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+        cart:0,
         rating:2,
         id:7
     },
@@ -82,6 +90,7 @@ let product=[{
         price: "49",
         stock: stock,
         image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+        cart:0,
         rating:3,
         id:8
     },
@@ -92,6 +101,7 @@ let product=[{
         price: "300",
         stock: stock,
         image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+        cart:0,
         rating:2,
         id:9
     }

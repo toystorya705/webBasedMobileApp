@@ -53,18 +53,20 @@
 
                  
                <div  class="checkoutBody">
-                    <button @click="showCart" :disabled="cartCheckDisable">Main Menu
+                    <button @click="showCart" >Main Menu
                     </button>
 
-                    <div v-for="product in product">
-                         <h1>BSc Information Techonology</h1>
+                    <div v-if="cartCount(index)>0" v-for="(product,index) in product"  :key="index">
+                    
+
+
+                         <h1> {{cartCount(index)}}</h1>
                          <img v-bind:src="product.image">
                          <p>Subject: {{product.subject}}</p><!-- Get data from object using v-text-->
                          <p>Location: {{product.id}}</p><!-- Get data from object-->
                          <p>Price: {{product.price}}</p><!-- Get data from object-->
-                         <p>Stock: {{product.stock}}</p><!-- Get data from object-->
-                         <button type="button" v-on:click="addItem(product.id)" :disabled="isDisabled(product.id)">Add
-                              To Cart</button>
+                         <p>Stock: {{cartCount(index)}}</p><!-- Get data from object-->
+                         <button type="button" v-on:click="removeButton(index)" >Remove</button>
                          <span v-if="product.stock === 0">All out!</span>
                          <span v-else-if="product.stock  < 5">
                               Only {{product.stock }} left! </span>
@@ -129,7 +131,7 @@
                     <h2>Order Information</h2>
                     <p>First Name: {{order.firstName}}</p>
                     <p>Last Name: {{order.lastName}}</p>
-                    <p>Address: {{order.address}}</p>
+                    <p>Address: {{order.address}}</p>         
                     <p>City: {{order.zip}}</p>
                     <p>Zip: {{order.zip}}</p>
                     <p>State: {{order.stateCheckoutDisplay}}</p>

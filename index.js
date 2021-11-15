@@ -42,16 +42,11 @@ let app = new Vue({
             return this.product[itemId].stock === 0
         },
         submitForm() { alert('Ordersubmitted!') },
-        stateSelect(state) {
-            //     console.log(state);
-            //     this.order.stateCheckoutDisplay= state;
-
-        },
         showCart() {
             this.showProduct = this.showProduct ? false : true
-            
+
         },
-   
+
         cartCount(id) {
             let count = 0;
             for (let i = 0; i < this.cart.length; i++) {
@@ -60,11 +55,22 @@ let app = new Vue({
                 }
             }
             return count;
+        },
+        removeButton(index) {
+            product[index].stock++;
+            for (let i = 0; i < this.cart.length; i++) {
+                if(this.cart[i]==index) {
+                this.cart.splice(i,1);
+            console.log(i+" "+index);
+          break;
+            
+                }
+            }
         }
     },
     computed: {// This disables the button at 0 stock
-        cartCheckDisable: function(){
-           return this.cart.length===0;
+        cartCheckDisable: function () {
+            return this.cart.length === 0;
         },
         cartItemCount: function () {
             return this.cart.length || '';
