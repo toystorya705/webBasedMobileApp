@@ -5,6 +5,8 @@ let app = new Vue({
 
         product: product,
         showProduct: true,
+        filter: '',
+        sort: '',
         order: {
             firstName: "",
             lastName: "",
@@ -25,6 +27,15 @@ let app = new Vue({
 
 
         },
+        options: [
+            { label: 'Default', value: 'none' },
+            { label: 'Most Rated', value: 'rating' },
+            { label: 'least Rated', value: 'leastrated' },
+            { label: 'price(high to low)', value: 'price(high to low)' },
+            { label: 'price(low to high)', value: 'price(low to high)' },
+
+
+        ],
 
         cart: []
     },
@@ -74,43 +85,44 @@ let app = new Vue({
         },
         cartItemCount: function () {
             return this.cart.length || '';
+        },
+    
+    getlesson() {
+
+        var product = this.product.filter((product) => {
+            return product.name.toLowerCase().includes(this.filter.toLowerCase());
+        });
+
+        if (this.sort == 'rating') {
+            return lesson.sort(function (a, b) {
+                return b.rating - a.rating
+            });
+
         }
-    //     getlesson() {
+        else if (this.sort == 'leastrated') {
+            return lesson.sort(function (a, b) {
+                return a.rating - b.rating
+            });
 
-    //         var lesson = this.lesson.filter((lesson) => {
-    //             return lesson.name.toLowerCase().includes(this.filter.toLowerCase());
-    //         });
+        }
+        else if (this.sort == 'price(high to low)') {
+            return lesson.sort(function (a, b) {
+                return b.price - a.price
+            });
 
-    //         if (this.sort == 'rating') {
-    //             return lesson.sort(function (a, b) {
-    //                 return b.rating - a.rating
-    //             });
+        }
+        else if (this.sort == 'price(low to high)') {
+            return lesson.sort(function (a, b) {
+                return a.price - b.price
+            });
 
-    //         }
-    //         else if (this.sort == 'leastrated') {
-    //             return lesson.sort(function (a, b) {
-    //                 return a.rating - b.rating
-    //             });
+        }
 
-    //         }
-    //         else if (this.sort == 'price(high to low)') {
-    //             return lesson.sort(function (a, b) {
-    //                 return b.price - a.price
-    //             });
+        else {
+            return lesson;
+        }
 
-    //         }
-    //         else if (this.sort == 'price(low to high)') {
-    //             return lesson.sort(function (a, b) {
-    //                 return a.price - b.price
-    //             });
-
-    //         }
-
-    //         else {
-    //             return lesson;
-    //         }
-
-    //     }
-    // }
     }
+}
 });
+
