@@ -75,6 +75,42 @@ let app = new Vue({
         cartItemCount: function () {
             return this.cart.length || '';
         }
+    //     getlesson() {
 
+    //         var lesson = this.lesson.filter((lesson) => {
+    //             return lesson.name.toLowerCase().includes(this.filter.toLowerCase());
+    //         });
+
+    //         if (this.sort == 'rating') {
+    //             return lesson.sort(function (a, b) {
+    //                 return b.rating - a.rating
+    //             });
+
+    //         }
+    //         else if (this.sort == 'leastrated') {
+    //             return lesson.sort(function (a, b) {
+    //                 return a.rating - b.rating
+    //             });
+
+    //         }
+    //         else if (this.sort == 'price(high to low)') {
+    //             return lesson.sort(function (a, b) {
+    //                 return b.price - a.price
+    //             });
+
+    //         }
+    //         else if (this.sort == 'price(low to high)') {
+    //             return lesson.sort(function (a, b) {
+    //                 return a.price - b.price
+    //             });
+
+    //         }
+
+    //         else {
+    //             return lesson;
+    //         }
+
+    //     }
+    // }
     }
 });
