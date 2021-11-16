@@ -36,7 +36,7 @@
                     <button @click="showCart" :disabled="cartCheckDisable">{{cartItemCount}} 
                          <span class="glyphicon glyphicon-shopping-cart"></span>Cart
                     </button>
-                    <div v-for="product in product">
+                    <div v-for="product in getproduct">
                          <h1>BSc Information Techonology</h1>
                          <img v-bind:src="product.image">
                          <p>Subject: {{product.subject}}</p><!-- Get data from object using v-text-->
