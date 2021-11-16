@@ -52,7 +52,13 @@ let app = new Vue({
         isDisabled(itemId) {
             return this.product[itemId].stock === 0
         },
-        submitForm() { alert('Ordersubmitted!') },
+        submitForm() {
+            
+             if(this.order.firstName==""){
+                 console.log("ugygygyg");
+             }
+        
+        },
         showCart() {
             this.showProduct = this.showProduct ? false : true
 
