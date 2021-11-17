@@ -8,7 +8,7 @@ let app = new Vue({
         filter: '',
         sort: '',
         order: {
-            firstName: "",
+            firstName:0,
             lastName: "",
             address: "",
             city: "",
@@ -54,8 +54,10 @@ let app = new Vue({
         },
         submitForm() {
             
-             if(this.order.firstName==""){
-                 console.log("ugygygyg");
+             if(this.order.firstName==""&&this.order.firstName.match(/^\d+/)){
+                 console.log("ugygygyg"+ this.order.firstName.length);
+             }else if(this.order.lastName==""){
+               console.log("rrrrrr"+ this.order.firstName.length);
              }
         
         },
