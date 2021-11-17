@@ -126,57 +126,51 @@ let app = new Vue({
 
             if (this.filterName == "subject") {
                 console.log("llll");
-                if (this.sort == 'asec') {
+                if (this.sort == 'dsec') {
                     console.log("sssss");
-                    return product.sort(function (a, b) {
-                        return b.subject - a.subject
-                    });
+                    return product.sort((a, b) =>( b.subject > a.subject? 1: -1) );
 
                 }
-                else if (this.sort == 'dsec') {
+                else if (this.sort == 'asec') {
                     console.log("dddd");
-                    return product.sort(function (a, b) {
-                        return a.subject - b.subject
-                    });
-
+                    return product.sort((a, b) =>( b.subject < a.subject? 1: -1) );
                 }
             }
             else if (this.filterName == "price") {
-                if (this.sort == "asec") {
+                if (this.sort == "dsec") {
                     return product.sort(function (a, b) {
                         return b.price - a.price
                     });
 
                 }
-                else if (this.sort == 'dsec') {
+                else if (this.sort == 'asec') {
                     return product.sort(function (a, b) {
                         return a.price - b.price
                     });
 
                 }
             }
+          //  let x = list.sort((a, b) => (a.name > b.name ? 1 : -1));
             else if (this.filterName == "location") {
-                if (this.sort == 'asec') {
-                    return product.sort(function (a, b) {
-                        return b.location - a.location
-                    });
+                console.log("its working");
+                if (this.sort == 'dsec') {
+                    return product.sort((a, b) =>( b.location > a.location? 1: -1) );
 
                 }
-                else if (this.sort == 'dsec') {
-                    return product.sort(function (a, b) {
-                        return a.location - b.location
-                    });
+                else if (this.sort == 'asec') {
+                    return product.sort((a, b) =>( b.location < a.location? 1: -1) );
+
 
                 }
             }
             else if (this.filterName == "stock") {
-                if (this.sort == 'asec') {
+                if (this.sort == 'dsec') {
                     return product.sort(function (a, b) {
                         return b.stock - a.stock;
                     });
 
                 }
-                else if (this.sort == 'dsec') {
+                else if (this.sort == 'asec') {
                     return product.sort(function (a, b) {
                         return a.stock - b.stock;
                     });

@@ -1,108 +1,98 @@
-let stock=7;
-let product=[{
 
-        subject: "English Litreature",
-        location: "london",
-        price: "50",
-        stock: stock,
-        image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
-        cart:0,
-        rating:3,
-        id:0
-    },{
+let product = [{
 
-        subject: "Math",
-        location: "l0",
-        price: "100",
-        stock: stock,
-        image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
-        cart:0,
-        rating:4,
-        id:1
-    },{
+    subject: "English Litreature",
+    location: "Lucknow",
+    price: "50",
+    stock: 6,
+    image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+    rating: 3,
+    id: 0
+}, {
 
-        subject: "English Language",
-        location: "london",
-        price: "90",
-        stock: stock,
-        image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
-        cart:0,
-        rating:2,
-        id:2
-    },
-    {
+    subject: "Math",
+    location: "Manchester",
+    price: "100",
+    stock: 7,
+    image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+    rating: 4,
+    id: 1
+}, {
 
-        subject: "Science",
-        location: "london",
-        price: "120",
-        stock: stock,
-        image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
-        cart:0,
-        rating:5,
-        id:3
-    },{
+    subject: "English Language",
+    location: "Liverpool",
+    price: "90",
+    stock: 8,
+    image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+    rating: 2,
+    id: 2
+},
+{
 
-        subject: "EVS",
-        location: "london",
-        price: "9",
-        stock: stock,
-        image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
-        cart:0,
-        rating:1,
-        id:4
-    },{
+    subject: "Science",
+    location: "Newcastle upon Tyne",
+    price: "120",
+    stock: 11,
+    image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+    rating: 5,
+    id: 3
+}, {
 
-        subject: "Hindi",
-        location: "london",
-        price: "30",
-        stock: stock,
-        image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
-        cart:0,
-        rating:5,
-        id:5
-    },
-    {
+    subject: "EVS",
+    location: "Birmingham",
+    price: "9",
+    stock: 50,
+    image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+    rating: 1,
+    id: 4
+}, {
 
-        subject: "French",
-        location: "london",
-        price: "49",
-        stock: stock,
-        image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
-        cart:0,
-        rating:3,
-        id:6
-    },
-    {
+    subject: "Hindi",
+    location: "Derby",
+    price: "30",
+    stock: 37,
+    image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+    rating: 5,
+    id: 5
+},
+{
 
-        subject: "Sanskrit",
-        location: "london",
-        price: "500",
-        stock: stock,
-        image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
-        cart:0,
-        rating:2,
-        id:7
-    },
-    {
+    subject: "French",
+    location: "Exeter",
+    price: "49",
+    stock: 22,
+    image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+    rating: 3,
+    id: 6
+},
+{
 
-        subject: "German",
-        location: "london",
-        price: "49",
-        stock: stock,
-        image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
-        cart:0,
-        rating:3,
-        id:8
-    },
-    {
+    subject: "Sanskrit",
+    location: "Delhi",
+    price: "500",
+    stock: 33,
+    image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+    rating: 2,
+    id: 7
+},
+{
 
-        subject: "Chinese",
-        location: "london",
-        price: "300",
-        stock: stock,
-        image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
-        cart:0,
-        rating:2,
-        id:9
-    }
+    subject: "German",
+    location: "Inverness",
+    price: "49",
+    stock: 9,
+    image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+    rating: 3,
+    id: 8
+},
+{
+
+    subject: "Chinese",
+    location: "Manchester",
+    price: "300",
+    stock: 10,
+    image: "https://media4.giphy.com/media/9d1Fo0XyIYXzW/200.gif",
+    rating: 2,
+    id: 9
+}
 ]

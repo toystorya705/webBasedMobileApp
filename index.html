@@ -56,7 +56,7 @@
                          <h1>BSc Information Techonology</h1>
                          <img v-bind:src="product.image">
                          <p>Subject: {{product.subject}}</p><!-- Get data from object using v-text-->
-                         <p>Location: {{product.id}}</p><!-- Get data from object-->
+                         <p>Location: {{product.location}}</p><!-- Get data from object-->
                          <p>Price: {{product.price}}</p><!-- Get data from object-->
                          <p>Stock: {{product.stock}}</p><!-- Get data from object-->
                          <button type="button" v-on:click="addItem(product.id)" :disabled="isDisabled(product.id)">Add
