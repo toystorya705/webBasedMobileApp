@@ -32,6 +32,22 @@
                 </option>
             </select>
 
+            <p><input v-on:click="filterClick" type="radio" id="price" value="price" v-model="filterName">
+               <label for="price" >Price</label>
+               <input v-on:click="filterClick" type="radio" id="location" value="location" v-model="filterName">
+               <label for="location">location</label>
+               <input v-on:click="filterClick" type="radio" id="stock" value="stock" v-model="filterName">
+               <label for="stock" >Stock</label>
+               <input v-on:click="filterClick" type="radio" id="subject" value="subject" v-model="filterName">
+               <label for="subject" >Subject</label>
+          </p>
+
+            <p><input type="radio" id="asec" value="asec" v-model="sort">
+               <label for="asec">Aescending</label>
+               <input type="radio" id="dsec" value="dsec" v-model="sort">
+               <label for="dsec">Descending</label>
+          </p>
+
 
                     <button @click="showCart" :disabled="cartCheckDisable">{{cartItemCount}} 
                          <span class="glyphicon glyphicon-shopping-cart"></span>Cart

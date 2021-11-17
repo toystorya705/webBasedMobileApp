@@ -5,10 +5,11 @@ let app = new Vue({
 
         product: product,
         showProduct: true,
+        filterName: '',
         filter: '',
         sort: '',
         order: {
-            firstName:0,
+            firstName: 0,
             lastName: "",
             address: "",
             city: "",
@@ -49,17 +50,18 @@ let app = new Vue({
                 this.cart.push(itemId);
             }
         },
+
         isDisabled(itemId) {
             return this.product[itemId].stock === 0
         },
         submitForm() {
-            
-             if(this.order.firstName==""&&this.order.firstName.match(/^\d+/)){
-                 console.log("ugygygyg"+ this.order.firstName.length);
-             }else if(this.order.lastName==""){
-               console.log("rrrrrr"+ this.order.firstName.length);
-             }
-        
+
+            if (this.order.firstName == "" && this.order.firstName.match(/^\d+/)) {
+                console.log("ugygygyg" + this.order.firstName.length);
+            } else if (this.order.lastName == "") {
+                console.log("rrrrrr" + this.order.firstName.length);
+            }
+
         },
         showCart() {
             this.showProduct = this.showProduct ? false : true
@@ -78,12 +80,32 @@ let app = new Vue({
         removeButton(index) {
             product[index].stock++;
             for (let i = 0; i < this.cart.length; i++) {
-                if(this.cart[i]==index) {
-                this.cart.splice(i,1);
-            console.log(i+" "+index);
-          break;
-            
+                if (this.cart[i] == index) {
+                    this.cart.splice(i, 1);
+                    console.log(i + " " + index);
+                    break;
+
                 }
+            }
+        },
+        filterClick() {
+
+
+            if (this.filterName == "") {
+                console.log("uufyerjf");
+                this.sort = "asec"
+            }
+            // this.getproduct;
+            // if(this.filter=="price"){
+
+            //     
+
+
+            // }
+
+            else if (this.filterName == "price" || this.filterName == "location" || this.filterName == "subject" || this.filterName == "rating") {
+                this.filterName = ""
+                this.sort = ""
             }
         }
     },
@@ -94,43 +116,81 @@ let app = new Vue({
         cartItemCount: function () {
             return this.cart.length || '';
         },
-    
-    getproduct() {
 
-        var product = this.product.filter((product) => {
-            return product.subject.toLowerCase().includes(this.filter.toLowerCase());
-        });
 
-        if (this.sort == 'rating') {
-            return product.sort(function (a, b) {
-                return b.rating - a.rating
+        getproduct() {
+
+            var product = this.product.filter((product) => {
+                return product.subject.toLowerCase().includes(this.filter.toLowerCase());
             });
 
-        }
-        else if (this.sort == 'leastrated') {
-            return product.sort(function (a, b) {
-                return a.rating - b.rating
-            });
+            if (this.filterName == "subject") {
+                console.log("llll");
+                if (this.sort == 'asec') {
+                    console.log("sssss");
+                    return product.sort(function (a, b) {
+                        return b.subject - a.subject
+                    });
+
+                }
+                else if (this.sort == 'dsec') {
+                    console.log("dddd");
+                    return product.sort(function (a, b) {
+                        return a.subject - b.subject
+                    });
+
+                }
+            }
+            else if (this.filterName == "price") {
+                if (this.sort == "asec") {
+                    return product.sort(function (a, b) {
+                        return b.price - a.price
+                    });
+
+                }
+                else if (this.sort == 'dsec') {
+                    return product.sort(function (a, b) {
+                        return a.price - b.price
+                    });
+
+                }
+            }
+            else if (this.filterName == "location") {
+                if (this.sort == 'asec') {
+                    return product.sort(function (a, b) {
+                        return b.location - a.location
+                    });
+
+                }
+                else if (this.sort == 'dsec') {
+                    return product.sort(function (a, b) {
+                        return a.location - b.location
+                    });
+
+                }
+            }
+            else if (this.filterName == "stock") {
+                if (this.sort == 'asec') {
+                    return product.sort(function (a, b) {
+                        return b.stock - a.stock;
+                    });
+
+                }
+                else if (this.sort == 'dsec') {
+                    return product.sort(function (a, b) {
+                        return a.stock - b.stock;
+                    });
+
+                }
+            }
+
+
+
+            else {
+                return product;
+            }
 
         }
-        else if (this.sort == 'price(high to low)') {
-            return product.sort(function (a, b) {
-                return b.price - a.price
-            });
-
-        }
-        else if (this.sort == 'price(low to high)') {
-            return product.sort(function (a, b) {
-                return a.price - b.price
-            });
-
-        }
-
-        else {
-            return product;
-        }
-
     }
-}
 });
 
