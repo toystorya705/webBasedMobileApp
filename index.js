@@ -115,6 +115,7 @@ let app = new Vue({
         },
         cartItemCount: function () {
             return this.cart.length || '';
+            
         },
 
 
