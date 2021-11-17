@@ -95,13 +95,6 @@ let app = new Vue({
                 console.log("uufyerjf");
                 this.sort = "asec"
             }
-            // this.getproduct;
-            // if(this.filter=="price"){
-
-            //     
-
-
-            // }
 
             else if (this.filterName == "price" || this.filterName == "location" || this.filterName == "subject" || this.filterName == "rating") {
                 this.filterName = ""
@@ -115,7 +108,7 @@ let app = new Vue({
         },
         cartItemCount: function () {
             return this.cart.length || '';
-            
+
         },
 
 
