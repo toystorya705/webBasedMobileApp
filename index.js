@@ -52,7 +52,7 @@ let app = new Vue({
             for (let i = 0; i < this.cart.length; i++) {
                 if (this.cart[i] == index) {
                     this.cart.splice(i, 1);
-                    console.log(i + " " + index);
+                
                     break;
 
                 }
@@ -68,8 +68,6 @@ let app = new Vue({
       
                 this.sort = "asec"
             
-          
-           
            
         },
         defaultClick(){
@@ -130,7 +128,7 @@ let app = new Vue({
             }
             //  let x = list.sort((a, b) => (a.name > b.name ? 1 : -1));
             else if (this.filterName == "location") {
-                console.log("its working");
+         
                 if (this.sort == 'dsec') {
                     return product.sort((a, b) => (b.location > a.location ? 1 : -1));
 
@@ -165,7 +163,7 @@ let app = new Vue({
         },
         submitForm() {
 
-            if (this.order.name.match(/[a-z]/) && this.order.phone.match(/[0-9]/) && this.order.phone.length >= 10){
+            if (this.order.name.match(/[A-Za-z]/) && this.order.phone.match(/[0-9]/) && this.order.phone.length >= 10){
                
                 return false;
             }
