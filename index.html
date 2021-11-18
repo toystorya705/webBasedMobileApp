@@ -5,6 +5,10 @@
      <meta charset="UTF-8">
      <title> Subject Details</title>
      <link rel="stylesheet" href="style.css">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+          crossorigin="anonymous"></script>
+
      <script src="https://unpkg.com/vue"></script>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -49,19 +53,24 @@
                     <button @click="showCart" :disabled="cartCheckDisable">{{cartItemCount}}
                          <span class="glyphicon glyphicon-shopping-cart"></span>Cart
                     </button>
-                    <div v-for="product in getproduct">
-                         <h1>BSc Information Techonology</h1>
-                         <img v-bind:src="product.image">
-                         <p>Subject: {{product.subject}}</p><!-- Get data from object using v-text-->
-                         <p>Location: {{product.location}}</p><!-- Get data from object-->
-                         <p>Price: {{product.price}}</p><!-- Get data from object-->
-                         <p>Stock: {{product.stock}}</p><!-- Get data from object-->
-                         <div>
-                              <span v-for='n in product.rating'>★</span>
-                              <span v-for='n in 5-product.rating'>☆</span>
+                    <h1>BSc Information Techonology</h1>
+                   
+                    <div v-for="product in getproduct" class="card" style="width: 18rem;">
+                        
+                         <img class="card-img-top" v-bind:src="product.image" alt="Card image cap">
+                         <div class="card-body">
+                              <p class="card-title">Subject: {{product.subject}}</p><!-- Get data from object using v-text-->
+                              <p>Location: {{product.location}}</p><!-- Get data from object-->
+                              <p>Price: {{product.price}}</p><!-- Get data from object-->
+                              <p>Stock: {{product.stock}}</p><!-- Get data from object-->
+                              <div>
+
+                                   <span v-for='n in product.rating'>★</span>
+                                   <span v-for='n in 5-product.rating'>☆</span>
+                              </div>
                          </div>
 
-                         <button type="button" v-on:click="addItem(product.id)" :disabled="isDisabled(product.id)">Add
+                         <button type="button" v-on:click="addItem(product.id)" class="btn btn-primary" :disabled="isDisabled(product.id)">Add
                               To Cart</button>
                          <span v-if="product.stock === 0">All out!</span>
                          <span v-else-if="product.stock  < 5">
@@ -70,7 +79,7 @@
 
                          <span v-else>Buy now!</span>
 
-             
+
 
 
                     </div>
@@ -87,7 +96,7 @@
 
 
 
-                             
+
                               <img v-bind:src="product.image">
                               <p>Subject: {{product.subject}}</p><!-- Get data from object using v-text-->
                               <p>Location: {{product.id}}</p><!-- Get data from object-->
@@ -100,10 +109,10 @@
 
 
                               <button type="button" v-on:click="removeButton(index)">Remove</button>
-          
-                             
 
-                             
+
+
+
 
 
                          </div>
