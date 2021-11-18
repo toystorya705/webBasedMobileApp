@@ -12,6 +12,9 @@
 
 
 }
+#app img{
+  width: 200%;
+}
 
 #app h1{
     color: red;
