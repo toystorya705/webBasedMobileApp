@@ -3,7 +3,7 @@
     background-color: rgba(107, 105, 105, 0.61);
     border-radius: 5%;
     font-family: verdana;
-    width: 30%;
+ 
 }
 
 #app{
@@ -11,9 +11,6 @@
     padding: 15px;
 
 
-}
-#app img{
-  width: 100%;
 }
 
 #app h1{

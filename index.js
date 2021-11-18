@@ -8,6 +8,7 @@ let app = new Vue({
         filterName: '',
         filter: '',
         sort: '',
+        messageCheckout:"",
         order: {
             name: "",
             phone: "",
@@ -59,11 +60,13 @@ let app = new Vue({
 
 
         },
+        placeOrder(){
+            this.messageCheckout="Order Placed";
+        },
         filterClick() {
 
 
             if (this.filterName == "") {
-                console.log("uufyerjf");
                 this.sort = "asec"
             }
 
@@ -77,6 +80,7 @@ let app = new Vue({
         cartCheckDisable: function () {
             if (this.showProduct == false){
                 this.filter="";// This will clear the search term once the user goes back to lesson page
+               this.messageCheckout="";
                 return false;
                 
             }
@@ -96,14 +100,14 @@ let app = new Vue({
             });
 
             if (this.filterName == "subject") {
-                console.log("llll");
+               
                 if (this.sort == 'dsec') {
-                    console.log("sssss");
+                  
                     return product.sort((a, b) => (b.subject > a.subject ? 1 : -1));
 
                 }
                 else if (this.sort == 'asec') {
-                    console.log("dddd");
+                  
                     return product.sort((a, b) => (b.subject < a.subject ? 1 : -1));
                 }
             }
@@ -158,8 +162,10 @@ let app = new Vue({
         },
         submitForm() {
 
-            if (this.order.name.match(/[a-z]/) && this.order.phone.match(/[0-9]/) && this.order.phone.length >= 10)
+            if (this.order.name.match(/[a-z]/) && this.order.phone.match(/[0-9]/) && this.order.phone.length >= 10){
+               
                 return false;
+            }
             else
                 return true;
 
