@@ -54,12 +54,13 @@
                          <span class="glyphicon glyphicon-shopping-cart"></span>Cart
                     </button>
                     <h1>BSc Information Techonology</h1>
-                   
+
                     <div v-for="product in getproduct" class="card" style="width: 18rem;">
-                        
+
                          <img class="card-img-top" v-bind:src="product.image" alt="Card image cap">
                          <div class="card-body">
-                              <p class="card-title">Subject: {{product.subject}}</p><!-- Get data from object using v-text-->
+                              <p class="card-title">Subject: {{product.subject}}</p>
+                              <!-- Get data from object using v-text-->
                               <p>Location: {{product.location}}</p><!-- Get data from object-->
                               <p>Price: {{product.price}}</p><!-- Get data from object-->
                               <p>Stock: {{product.stock}}</p><!-- Get data from object-->
@@ -70,7 +71,8 @@
                               </div>
                          </div>
 
-                         <button type="button" v-on:click="addItem(product.id)" class="btn btn-primary" :disabled="isDisabled(product.id)">Add
+                         <button type="button" v-on:click="addItem(product.id)" class="btn btn-primary"
+                              :disabled="isDisabled(product.id)">Add
                               To Cart</button>
                          <span v-if="product.stock === 0">All out!</span>
                          <span v-else-if="product.stock  < 5">
@@ -92,24 +94,26 @@
                               <span class="glyphicon glyphicon-shopping-cart"></span>Cart
                          </button>
 
-                         <div v-if="cartCount(index)>0" v-for="(product,index) in product" :key="index">
+                         <div class="card" style="width: 18rem;" v-if="cartCount(index)>0"
+                              v-for="(product,index) in product" :key="index">
 
 
 
 
-                              <img v-bind:src="product.image">
-                              <p>Subject: {{product.subject}}</p><!-- Get data from object using v-text-->
-                              <p>Location: {{product.id}}</p><!-- Get data from object-->
-                              <p>Price: {{product.price}}</p><!-- Get data from object-->
-                              <p>Stock Added to Cart: {{cartCount(index)}}</p><!-- Get data from object-->
-                              <div>
-                                   <span v-for='n in product.rating'>★</span>
-                                   <span v-for='n in 5-product.rating'>☆</span>
+                              <img class="card-img-top" v-bind:src="product.image" alt="Card image cap">
+                              <div class="card-body">
+                                   <p class="card-title">Subject: {{product.subject}}</p><!-- Get data from object using v-text-->
+                                   <p>Location: {{product.id}}</p><!-- Get data from object-->
+                                   <p>Price: {{product.price}}</p><!-- Get data from object-->
+                                   <p>Stock Added to Cart: {{cartCount(index)}}</p><!-- Get data from object-->
+                                   <div>
+                                        <span v-for='n in product.rating'>★</span>
+                                        <span v-for='n in 5-product.rating'>☆</span>
+                                   </div>
+
+
+                                   <button  class="btn btn-primary" type="button" v-on:click="removeButton(index)">Remove</button>
                               </div>
-
-
-                              <button type="button" v-on:click="removeButton(index)">Remove</button>
-
 
 
 
