@@ -60,7 +60,7 @@ let product = [{
     subject: "French",
     location: "Exeter",
     price: "49",
-    stock: 22,
+    stock: 23,
     image: "https://lh3.googleusercontent.com/proxy/e-3vSgQNreuT7exItBOA4XjMM6K0Jf4Tq0FOW0tljcb328SCzhAhMvG6cTbEi1H8XN6eA2Lhc8BRrHp3tBK7Ebj3Vf3fT-PGxvzH_1w",
     rating: 3,
     id: 6
