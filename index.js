@@ -11,25 +11,9 @@ let app = new Vue({
         order: {
             name: "",
             phone: "",
-            address: "",
-            city: "",
-            zip: "",
-            method: 'Home',
-            gift: "Do not send as a gift",
-            sendGift: 'Send as a gift',
-            dontSendGift: 'Do not send as a gift',
-
-
+          
         },
-        options: [
-            { label: 'Default', value: 'none' },
-            { label: 'Most Rated', value: 'rating' },
-            { label: 'least Rated', value: 'leastrated' },
-            { label: 'price(high to low)', value: 'price(high to low)' },
-            { label: 'price(low to high)', value: 'price(low to high)' },
-
-
-        ],
+     
 
         cart: []
     },
@@ -91,8 +75,11 @@ let app = new Vue({
     },
     computed: {// This disables the button at 0 stock
         cartCheckDisable: function () {
-            if (this.showProduct == false)
+            if (this.showProduct == false){
+                this.filter="";// This will clear the search term once the user goes back to lesson page
                 return false;
+                
+            }
             else
                 return this.cart.length === 0;
         },
