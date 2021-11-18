@@ -81,7 +81,8 @@
 
                  
                <div  class="checkoutBody">
-                    <button @click="showCart" >Main Menu
+                    <button @click="showCart" :disabled="cartCheckDisable">{{cartItemCount}} 
+                         <span class="glyphicon glyphicon-shopping-cart"></span>Cart
                     </button>
 
                     <div v-if="cartCount(index)>0" v-for="(product,index) in product"  :key="index">
@@ -166,7 +167,7 @@
                     <p>{{order.gift}}</p>
                     <p>Method: {{order.method}}</p>
 
-                    <button v-on:click="submitForm">Place
+                    <button :disabled="submitForm" >Place
                          Order</button>
 
                </div>

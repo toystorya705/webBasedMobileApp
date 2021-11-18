@@ -9,7 +9,7 @@ let app = new Vue({
         filter: '',
         sort: '',
         order: {
-            firstName: 0,
+            firstName: "",
             lastName: "",
             address: "",
             city: "",
@@ -54,15 +54,7 @@ let app = new Vue({
         isDisabled(itemId) {
             return this.product[itemId].stock === 0
         },
-        submitForm() {
 
-            if (this.order.firstName == "" && this.order.firstName.match(/^\d+/)) {
-                console.log("ugygygyg" + this.order.firstName.length);
-            } else if (this.order.lastName == "") {
-                console.log("rrrrrr" + this.order.firstName.length);
-            }
-
-        },
         showCart() {
             this.showProduct = this.showProduct ? false : true
 
@@ -87,6 +79,8 @@ let app = new Vue({
 
                 }
             }
+
+
         },
         filterClick() {
 
@@ -104,7 +98,10 @@ let app = new Vue({
     },
     computed: {// This disables the button at 0 stock
         cartCheckDisable: function () {
-            return this.cart.length === 0;
+            if (this.showProduct == false)
+                return false;
+            else
+                return this.cart.length === 0;
         },
         cartItemCount: function () {
             return this.cart.length || '';
@@ -122,12 +119,12 @@ let app = new Vue({
                 console.log("llll");
                 if (this.sort == 'dsec') {
                     console.log("sssss");
-                    return product.sort((a, b) =>( b.subject > a.subject? 1: -1) );
+                    return product.sort((a, b) => (b.subject > a.subject ? 1 : -1));
 
                 }
                 else if (this.sort == 'asec') {
                     console.log("dddd");
-                    return product.sort((a, b) =>( b.subject < a.subject? 1: -1) );
+                    return product.sort((a, b) => (b.subject < a.subject ? 1 : -1));
                 }
             }
             else if (this.filterName == "price") {
@@ -144,15 +141,15 @@ let app = new Vue({
 
                 }
             }
-          //  let x = list.sort((a, b) => (a.name > b.name ? 1 : -1));
+            //  let x = list.sort((a, b) => (a.name > b.name ? 1 : -1));
             else if (this.filterName == "location") {
                 console.log("its working");
                 if (this.sort == 'dsec') {
-                    return product.sort((a, b) =>( b.location > a.location? 1: -1) );
+                    return product.sort((a, b) => (b.location > a.location ? 1 : -1));
 
                 }
                 else if (this.sort == 'asec') {
-                    return product.sort((a, b) =>( b.location < a.location? 1: -1) );
+                    return product.sort((a, b) => (b.location < a.location ? 1 : -1));
 
 
                 }
@@ -178,7 +175,15 @@ let app = new Vue({
                 return product;
             }
 
-        }
+        },
+        submitForm() {
+
+            if (this.order.firstName.match(/[a-z]/) && this.order.lastName.match(/[0-9]/) && this.order.lastName.length >= 10)
+                return false;
+            else
+                return true;
+
+        },
     }
 });
 
