@@ -64,17 +64,20 @@ let app = new Vue({
             this.messageCheckout="Order Placed";
         },
         filterClick() {
-
-
-            if (this.filterName == "") {
+            
+      
                 this.sort = "asec"
-            }
-
-            else if (this.filterName == "price" || this.filterName == "location" || this.filterName == "subject" || this.filterName == "rating") {
-                this.filterName = ""
-                this.sort = ""
-            }
+            
+          
+           
+           
+        },
+        defaultClick(){
+         
+                this.sort =""
+            
         }
+
     },
     computed: {// This disables the button at 0 stock
         cartCheckDisable: function () {

@@ -32,7 +32,10 @@
 
 
 
-                    <p><input v-on:click="filterClick" type="radio" id="price" value="price" v-model="filterName">
+                    <p>
+                         <input v-on:click="defaultClick" type="radio" id="default" value="default" v-model="filterName">
+                         <label for="default">Default</label>
+                         <input v-on:click="filterClick" type="radio" id="price" value="price" v-model="filterName">
                          <label for="price">Price</label>
                          <input v-on:click="filterClick" type="radio" id="location" value="location"
                               v-model="filterName">
