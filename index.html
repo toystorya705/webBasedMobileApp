@@ -16,40 +16,41 @@
      <div id="body">
           <!--Main body for background colour-->
           <div id="app">
-                
-              
 
-              
+
+
+
                <div v-if='showProduct'>
-                    
-            <input placeholder="Search Lesson" icon="search" v-model="filter">
+
+                    <input placeholder="Search Lesson" icon="search" v-model="filter">
 
 
 
 
-            <select v-model="sort" placeholder="Sort by">
-                <option v-for="item in options" :label="item.label" :value="item.value">
-                </option>
-            </select>
+                    <select v-model="sort" placeholder="Sort by">
+                         <option v-for="item in options" :label="item.label" :value="item.value">
+                         </option>
+                    </select>
 
-            <p><input v-on:click="filterClick" type="radio" id="price" value="price" v-model="filterName">
-               <label for="price" >Price</label>
-               <input v-on:click="filterClick" type="radio" id="location" value="location" v-model="filterName">
-               <label for="location">location</label>
-               <input v-on:click="filterClick" type="radio" id="stock" value="stock" v-model="filterName">
-               <label for="stock" >Stock</label>
-               <input v-on:click="filterClick" type="radio" id="subject" value="subject" v-model="filterName">
-               <label for="subject" >Subject</label>
-          </p>
+                    <p><input v-on:click="filterClick" type="radio" id="price" value="price" v-model="filterName">
+                         <label for="price">Price</label>
+                         <input v-on:click="filterClick" type="radio" id="location" value="location"
+                              v-model="filterName">
+                         <label for="location">location</label>
+                         <input v-on:click="filterClick" type="radio" id="stock" value="stock" v-model="filterName">
+                         <label for="stock">Stock</label>
+                         <input v-on:click="filterClick" type="radio" id="subject" value="subject" v-model="filterName">
+                         <label for="subject">Subject</label>
+                    </p>
 
-            <p><input type="radio" id="asec" value="asec" v-model="sort">
-               <label for="asec">Aescending</label>
-               <input type="radio" id="dsec" value="dsec" v-model="sort">
-               <label for="dsec">Descending</label>
-          </p>
+                    <p><input type="radio" id="asec" value="asec" v-model="sort">
+                         <label for="asec">Aescending</label>
+                         <input type="radio" id="dsec" value="dsec" v-model="sort">
+                         <label for="dsec">Descending</label>
+                    </p>
 
 
-                    <button @click="showCart" :disabled="cartCheckDisable">{{cartItemCount}} 
+                    <button @click="showCart" :disabled="cartCheckDisable">{{cartItemCount}}
                          <span class="glyphicon glyphicon-shopping-cart"></span>Cart
                     </button>
                     <div v-for="product in getproduct">
@@ -79,100 +80,62 @@
                </div>
                <div v-else>
 
-                 
-               <div  class="checkoutBody">
-                    <button @click="showCart" :disabled="cartCheckDisable">{{cartItemCount}} 
-                         <span class="glyphicon glyphicon-shopping-cart"></span>Cart
-                    </button>
 
-                    <div v-if="cartCount(index)>0" v-for="(product,index) in product"  :key="index">
-                    
+                    <div class="checkoutBody">
+                         <button @click="showCart" :disabled="cartCheckDisable">{{cartItemCount}}
+                              <span class="glyphicon glyphicon-shopping-cart"></span>Cart
+                         </button>
 
-
-                         <h1> {{cartCount(index)}}</h1>
-                         <img v-bind:src="product.image">
-                         <p>Subject: {{product.subject}}</p><!-- Get data from object using v-text-->
-                         <p>Location: {{product.id}}</p><!-- Get data from object-->
-                         <p>Price: {{product.price}}</p><!-- Get data from object-->
-                         <p>Stock: {{cartCount(index)}}</p><!-- Get data from object-->
-                         <button type="button" v-on:click="removeButton(index)" >Remove</button>
-                         <span v-if="product.stock === 0">All out!</span>
-                         <span v-else-if="product.stock  < 5">
-                              Only {{product.stock }} left! </span>
+                         <div v-if="cartCount(index)>0" v-for="(product,index) in product" :key="index">
 
 
-                         <span v-else>Buy now!</span>
 
-                         <div>
-                              <span v-for='n in product.rating'>★</span>
-                              <span v-for='n in 5-product.rating'>☆</span>
+                              <h1> {{cartCount(index)}}</h1>
+                              <img v-bind:src="product.image">
+                              <p>Subject: {{product.subject}}</p><!-- Get data from object using v-text-->
+                              <p>Location: {{product.id}}</p><!-- Get data from object-->
+                              <p>Price: {{product.price}}</p><!-- Get data from object-->
+                              <p>Stock: {{cartCount(index)}}</p><!-- Get data from object-->
+                              <button type="button" v-on:click="removeButton(index)">Remove</button>
+                              <span v-if="product.stock === 0">All out!</span>
+                              <span v-else-if="product.stock  < 5">
+                                   Only {{product.stock }} left! </span>
+
+
+                              <span v-else>Buy now!</span>
+
+                              <div>
+                                   <span v-for='n in product.rating'>★</span>
+                                   <span v-for='n in 5-product.rating'>☆</span>
+                              </div>
+
+
+
                          </div>
+                         <h2>Checkout</h2>
+                         <p>
+                              <strong>Name:</strong>
+                              <!-- This input field is bound to 'firstName' in the 'order' object -->
+                              <input v-model="order.name" />
+                         </p>
+                         <p>
+                              <strong>Phone:</strong>
+                              <!-- This input field is bound to 'lastName' in the 'order' object -->
+                              <input v-model="order.phone" />
+                         </p>
 
 
+                         <h2>Order Information</h2>
+                         <p>Name: {{order.name}}</p>
+                         <p>Phone: {{order.phone}}</p>
+
+
+                         <button :disabled="submitForm">Place
+                              Order</button>
 
                     </div>
-                    <h2>Checkout</h2>
-                    <p>
-                         <strong>First Name:</strong>
-                         <!-- This input field is bound to 'firstName' in the 'order' object -->
-                         <input v-model="order.firstName" />
-                    </p>
-                    <p>
-                         <strong>Last Name:</strong>
-                         <!-- This input field is bound to 'lastName' in the 'order' object -->
-                         <input v-model="order.lastName" />
-                    </p>
-                    <p>
-                         <strong>Address:</strong>
-                         <!-- This input field is bound to 'address' in the 'order' object -->
-                         <input v-model="order.address" />
-                    </p>
-                    <p>
-                         <strong>City:</strong>
-                         <!-- This input field is bound to 'city' in the 'order' object -->
-                         <input v-model="order.city" />
-                    </p>
-                    <p>
-                         <strong>Zip:</strong>
-                         <!-- This input field is bound to 'order' in the 'order' object -->
-                         <input v-model="order.zip" />
-                    </p>
-                    <p>
-                         <strong>State:</strong>
-                         <!-- This input field is bound to 'state' in the 'order' object -->
-                         <select v-model="order.stateCheckoutDisplay" class="form-control">
-                              <option disabled value="">State</option>
-                              <option v-for="state in order.states"> {{state}}</option>
-                         </select>
-
-
-                    </p>
-                    <p>
-                         <input type="checkbox" id="gift" value="true" v-model="order.gift"
-                              v-bind:true-value="order.sendGift" v-bind:false-value="order.dontSendGift">
-                         <label for="gift">Ship As Gift?</label>
-                    </p>
-                    <p><input type="radio" id="home" value="Home" v-model="order.method">
-                         <label for="home">Home</label>
-                         <input type="radio" id="business" value="Business" v-model="order.method">
-                         <label for="business">Business</label>
-                    </p>
-                    <h2>Order Information</h2>
-                    <p>First Name: {{order.firstName}}</p>
-                    <p>Last Name: {{order.lastName}}</p>
-                    <p>Address: {{order.address}}</p>         
-                    <p>City: {{order.zip}}</p>
-                    <p>Zip: {{order.zip}}</p>
-                    <p>State: {{order.stateCheckoutDisplay}}</p>
-                    <p>{{order.gift}}</p>
-                    <p>Method: {{order.method}}</p>
-
-                    <button :disabled="submitForm" >Place
-                         Order</button>
 
                </div>
-          
-          </div>
                <div v-else>
 
                </div>

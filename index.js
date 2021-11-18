@@ -9,8 +9,8 @@ let app = new Vue({
         filter: '',
         sort: '',
         order: {
-            firstName: "",
-            lastName: "",
+            name: "",
+            phone: "",
             address: "",
             city: "",
             zip: "",
@@ -18,13 +18,6 @@ let app = new Vue({
             gift: "Do not send as a gift",
             sendGift: 'Send as a gift',
             dontSendGift: 'Do not send as a gift',
-            states: [
-                'Alabama',
-                'Arizona',
-                'California',
-                'Nevada'
-            ],
-            stateCheckoutDisplay: ""
 
 
         },
@@ -178,7 +171,7 @@ let app = new Vue({
         },
         submitForm() {
 
-            if (this.order.firstName.match(/[a-z]/) && this.order.lastName.match(/[0-9]/) && this.order.lastName.length >= 10)
+            if (this.order.name.match(/[a-z]/) && this.order.phone.match(/[0-9]/) && this.order.phone.length >= 10)
                 return false;
             else
                 return true;
