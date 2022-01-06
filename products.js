@@ -1,5 +1,4 @@
-
-let product = [{
+exports.product = [{
 
     subject: "English Litreature",
     location: "Lucknow",

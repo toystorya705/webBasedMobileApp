@@ -3,7 +3,7 @@ let app = new Vue({
     el: "#app",
     data: {
 
-        product: product,
+        product: [],
         showProduct: true,
         filterName: '',
         filter: '',
@@ -20,7 +20,9 @@ let app = new Vue({
     },
     methods: {
         //  This function decrease the value of stock by 1 every time user click Button
-
+productsFetch(){
+ fetch("/lessons")(response=>this.product=response);
+},
         addItem(itemId) {
             if (product[itemId].stock > 0) {
 
@@ -52,9 +54,7 @@ let app = new Vue({
             for (let i = 0; i < this.cart.length; i++) {
                 if (this.cart[i] == index) {
                     this.cart.splice(i, 1);
-                
                     break;
-
                 }
             }
 
