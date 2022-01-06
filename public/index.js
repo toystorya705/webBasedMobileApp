@@ -20,8 +20,12 @@ let app = new Vue({
     },
     methods: {
         //  This function decrease the value of stock by 1 every time user click Button
-productsFetch(){
- fetch("/lessons")(response=>this.product=response);
+ 
+
+        productsFetch: async function(){
+    const response = await fetch("/lessons");
+    const data = await response.json();
+    this.product = data;
 },
         addItem(itemId) {
             if (product[itemId].stock > 0) {
@@ -92,6 +96,7 @@ productsFetch(){
             return this.cart.length || '';
 
         },
+      
 
 
         getproduct() {
@@ -171,6 +176,9 @@ productsFetch(){
                 return true;
 
         },
+    },
+    mounted: function(){
+this.productsFetch();
     }
 });
 
